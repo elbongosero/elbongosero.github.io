@@ -3,7 +3,7 @@ layout: page
 title: explore
 permalink: /explore/
 description: Piano Roll and Audio of Repetitions
-nav: true
+nav: false
 nav_order: 2
 display_categories: [PianoRolls, Audios]
 horizontal: false
