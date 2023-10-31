@@ -7,7 +7,7 @@ subtitle: A Small Exploration of AI and Rhythm
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   address: > 
     Currently on display at the Centre de Cultura Contemporània de Barcelona (CCCB), Oct 2023 - April 2024
 
