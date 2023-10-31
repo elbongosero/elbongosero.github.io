@@ -9,6 +9,7 @@ horizontal: false
 ---
 
 
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/1399720e-68f6-49d4-93b5-b18f57c20f7e" alt="CAST_coberta" class="resizable-image" width="200px">
 
 <br><br><br><br><br><br>
 
