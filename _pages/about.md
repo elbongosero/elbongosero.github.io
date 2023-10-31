@@ -19,9 +19,11 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-![CAST_coberta](https://github.com/elbongosero/elbongosero.github.io/assets/35939495/1399720e-68f6-49d4-93b5-b18f57c20f7e)
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/1399720e-68f6-49d4-93b5-b18f57c20f7e" alt="CAST_coberta" class="resizable-image" width="500px">
 
-![setup](https://github.com/elbongosero/elbongosero.github.io/assets/35939495/d0a1da54-6d51-4447-a005-dbc08fbf9f6e)
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/d0a1da54-6d51-4447-a005-dbc08fbf9f6e" alt="setup" class="resizable-image" width="300px">
+
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/ab0118cb-a790-4c27-9827-7cf51257ec1c" alt="setup" class="resizable-image" width="300px">
 
 
 <br><br><br><br><br><br>
