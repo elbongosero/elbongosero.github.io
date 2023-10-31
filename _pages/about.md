@@ -16,7 +16,6 @@ latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/13d128dc-621c-4cea-94af-94b01a3ebbda" alt="third_image" class="resizable-image" width="450px">
 
 `El Bongosero` is an installation prepared for the [AI: Artificial Intelligence](https://www.cccb.org/en/exhibitions/file/ai-artificial-intelligence/240941) exhibition currently held at the *Centre de Cultura Contemporània de Barcelona* ([CCCB](https://www.cccb.org/en)).
 
@@ -26,7 +25,8 @@ The installation is divided in two parts. In the first part, the participants pl
 
 In this website, we provide the data collected from the subset of participants who have explicitly consented to storing and publicly sharing their contributions. 
 
-<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/1399720e-68f6-49d4-93b5-b18f57c20f7e" alt="CAST_coberta" class="resizable-image" width="200px">
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/13d128dc-621c-4cea-94af-94b01a3ebbda" alt="third_image" class="resizable-image" width="800px">
+
 
 
 
