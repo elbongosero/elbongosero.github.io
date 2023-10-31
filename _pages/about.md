@@ -21,7 +21,9 @@ social: true  # includes social icons at the bottom of the page
 
 In this installation, the participants have the opportunity to collaborate with a generative AI model to craft their unique drum patterns. 
 
-The installation is divided in two parts. In the first part, the participants play a bongo pattern on a MIDI drum pad and subsequently, generate three different drum patterns based on their bongo improvisations. In the second part, the participants listen to a provided drum loop and try to simultaneously improvise on the electronic bongo. 
+The installation is divided in two parts. In the first part, the participants play a bongo pattern on a MIDI drum pad and subsequently, generate and rate three different drum patterns based on their bongo improvisations. In the second part, the participants listen to a provided drum loop and try to simultaneously improvise on the electronic bongo. 
+
+The data collected from the first part is used for evaluating the performance of the generative model. On the other hand, the data collected from the second part is used to fine-tune the model throughout the exhibition period. 
 
 In this website, we provide the data collected from the subset of participants who have explicitly consented to storing and publicly sharing their contributions. 
 
