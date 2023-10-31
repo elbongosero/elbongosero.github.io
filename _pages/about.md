@@ -2,7 +2,7 @@
 layout: about
 title: El Bongosero
 permalink: /
-subtitle: A Small Exploration of AI and Rhythm
+subtitle: 
 
 profile:
   align: right
@@ -16,7 +16,7 @@ latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/ab0118cb-a790-4c27-9827-7cf51257ec1c" alt="third_image" class="resizable-image" width="200px">
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/13d128dc-621c-4cea-94af-94b01a3ebbda" alt="third_image" class="resizable-image" width="450px">
 
 `El Bongosero` is an installation prepared for the [*AI: Artificial Intelligence*](https://www.cccb.org/en/exhibitions/file/ai-artificial-intelligence/240941) exhibition currently held at the *Centre de Cultura Contemporània de Barcelona ([CCCB](https://www.cccb.org/en))*.
 
