@@ -1,12 +1,12 @@
 ---
 layout: page
-permalink: /teaching/
-title: teaching
-description: Materials for courses you taught. Replace this text with your description.
-nav: false
+permalink: /about_us/
+title: About Us
+description: 
+nav: true
 nav_order: 5
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+We are researchers at MTG ... 
 
-Organize your courses by years, topics, or universities, however you like!
+<img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/54b5b0c6-edff-4dc7-b57f-bc2cc6f0b58f" alt="setup" class="resizable-image" width="500px">
