@@ -16,8 +16,9 @@ nav_order: 5
 [Nicholas Evans]() has recently completed his master's in Sound and Music Computing at MTG and has transition into a PhD role. During his PhD, he will be working on user-customizable generative models so as to create tools that are not just technically advanced but also tailored to individual needs.
 
 <hr width="50%" color="green" size="50px" align="left" />
-[Sergi Jorda](https://www.upf.edu/web/sergi-jorda) is an esteemed figure at the Music Technology Group of the Universitat Pompeu Fabra. His vast experience in the realm of interactive music systems has earned him recognition as a leading voice in digital music research. Over the years, Sergi has made substantial contributions to the field, particularly in the arena of Tangible User Interfaces. His work is characterized by its blend of innovative thinking and a deep understanding of both the technical and artistic aspects of music technology. With his guidance, many budding researchers, like Behzad and Nick, find direction and purpose in their pursuits.
+[Sergi Jorda](https://www.upf.edu/web/sergi-jorda) is an esteemed figure at the Music Technology Group of the Universitat Pompeu Fabra. His vast experience in the realm of interactive music systems has earned him recognition as a leading voice in digital music research. Over the years, Sergi has made substantial contributions to the field, particularly in the arena of Tangible User Interfaces. His work is characterized by its blend of innovative thinking and a deep understanding of both the technical and artistic aspects of music technology. Among many responsibilites at the MTG, Sergi is currently supervising PhD studies of Behzad and Nick. 
 
+<hr width="50%" color="green" size="50px" align="left" />
 
 <img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/54b5b0c6-edff-4dc7-b57f-bc2cc6f0b58f" alt="setup" class="resizable-image" width="400px">
 
