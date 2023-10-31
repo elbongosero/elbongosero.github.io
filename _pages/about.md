@@ -19,6 +19,10 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
+![CAST_coberta](https://github.com/elbongosero/elbongosero.github.io/assets/35939495/1399720e-68f6-49d4-93b5-b18f57c20f7e)
+
+![setup](https://github.com/elbongosero/elbongosero.github.io/assets/35939495/d0a1da54-6d51-4447-a005-dbc08fbf9f6e)
+
 
 <br><br><br><br><br><br>
 
