@@ -26,10 +26,6 @@ The installation is divided in two parts. In the first part, the participants pl
 
 In this website, we provide the data collected from the subset of participants who have explicitly consented to storing and publicly sharing their contributions. 
 
-At the end of this experience, we will request your explicit consent to utilize the data generated during these interactions, to enhance and refine our AI system. "
-                "While all data collected will remain completely anonymous, without your explicit approval, your data will not be retained. "
-                "\n\nIf you grant consent, we'll provide you a unique identifier for recognizing your data in a dataset we will publish. "
-
 <img src="https://github.com/elbongosero/elbongosero.github.io/assets/35939495/1399720e-68f6-49d4-93b5-b18f57c20f7e" alt="CAST_coberta" class="resizable-image" width="200px">
 
 
