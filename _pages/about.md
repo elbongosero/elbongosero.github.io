@@ -1,6 +1,6 @@
 ---
 layout: page
-title: HOME
+title: About
 description: "ANON: A CROWD-SOURCED SYMBOLIC DATASET OF IMPROVISED HAND PERCUSSION RHYTHMS PAIRED WITH DRUM"
 permalink: /
 subtitle: 
