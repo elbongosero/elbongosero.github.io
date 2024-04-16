@@ -1,28 +1,28 @@
 ---
 layout: page
-title: Further Analysis
+title: Inspect Data
 nav: true
 nav_order: 100
 dropdown: true
 children:
-  - title: Afrobeat Data
+  - title: Afrobeat
     permalink: /explore/afrobeat/
-  - title: Afrocuban Data
+  - title: Afrocuban
     permalink: /explore/afrocuban/
-  - title: Bossanova Data
+  - title: Bossanova
     permalink: /explore/bossanova/
-  - title: Disco Data
+  - title: Disco
     permalink: /explore/disco/
-  - title: Electronic Data
+  - title: Electronic
     permalink: /explore/electronic/
-  - title: Funk Data
+  - title: Funk
     permalink: /explore/funk/
-  - title: Hip-hop Data
+  - title: Hip-hop
     permalink: /explore/hip-hop/
-  - title: Jazz Data
+  - title: Jazz
     permalink: /explore/jazz/
-  - title: Rock Data
+  - title: Rock
     permalink: /explore/rock/
-  - title: Soul Data
+  - title: Soul
     permalink: /explore/soul/
 ---
