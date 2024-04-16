@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header>
+
+  <article>
+    {{ content }}
+  </article>
+
+<!--  print a message-->
+
+  <style>
+    .midi-player, .midi-visualizer {
+      background-color: #4d4;
+      display: block;
+      width: auto; /* Adjust the size of the players */
+      height: auto; /* Maintain aspect ratio */
+    }
+  </style>
+
+  <!-- MIDI Player Integration -->
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.7.58"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0"></script>
+
+  {% for i in (0..4) %}
+
+  <div class="experience-section">
+
+    <h2>Experience {{ i }}</h2>
+    <hr>
+    <label for="attemptSelect{{ i }}">Select Attempt:</label>
+    <select id="attemptSelect{{ i }}" onchange="updateMidiPlayers('{{ i }}')">
+      {% for j in (1..page.num_attempts[i]) %}
+      <option value="{{ j }}">Attempt {{ j }}</option>
+      {% endfor %}
+    </select>
+
+    <div class="players">
+      <midi-player id="midiPlayer{{ i }}Bongo" sound-font visualizer="#midiVisualizer{{ i }}Bongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer{{ i }}Bongo"></midi-visualizer>
+
+      <midi-player id="midiPlayer{{ i }}DrumAndBongo" sound-font visualizer="#midiVisualizer{{ i }}DrumAndBongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer{{ i }}DrumAndBongo"></midi-visualizer>
+
+
+    </div>
+  </div>
+  <br><br><br>
+
+  {% endfor %}
+
+  <script>
+    function updateMidiPlayers(experience) {
+      var attemptIndex = document.getElementById('attemptSelect' + experience).value;
+      var filePrefix = "{{ page.style }}/experience_" + experience + "/" + attemptIndex + "/";
+      // print file prefix
+        console.log(filePrefix);
+      document.getElementById('midiPlayer' + experience + 'Bongo').src = "{{ site.baseurl }}/{{ page.root_dir }}/" + filePrefix + "bongo.mid";
+      document.getElementById('midiPlayer' + experience + 'DrumAndBongo').src = "{{ site.baseurl }}/{{ page.root_dir }}/" + filePrefix + "drum_and_bongo.mid";
+    }
+
+    window.onload = function() {
+      {% for i in (0..4) %}
+        updateMidiPlayers('{{ i }}');
+      {% endfor %}
+    };
+  </script>
+
+</div>
