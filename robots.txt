@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://generativedata.github.io/sitemap.xml
