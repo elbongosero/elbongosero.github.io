@@ -1,0 +1,109 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header>
+
+  <article>
+      {% include toc.html html=content %}
+    {{ content }}
+  </article>
+
+  <style>
+
+    .midi-player, .midi-visualizer {
+      background-color: #4d4;
+      display: block;
+      width: auto; /* Adjust the size of the players */
+      height: auto; /* Maintain aspect ratio */
+    }
+    h4 {
+      font-size: 1em; /* Reduce the size of subset labels */
+    }
+    .player-container {
+      flex-basis: 100%; /* Adjust the container size for each player */
+    }
+  </style>
+
+  <!-- MIDI Player Integration -->
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.7.58"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/focus-visible@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0"></script>
+
+  {% for genre in page.genres %}
+  <!-- ADD Extra space between each genre, bolden genre -->
+    <br>
+    <h3 style="font-weight: bold;">{{ genre }}</h3>
+  <hr>
+
+  <!-- Shared MIDI File Selector -->
+  <label for="midiSelect{{ genre }}">Select MIDI File for {{ genre }}:</label>
+  <select id="midiSelect{{ genre }}" onchange="updateMidiSources('{{ genre }}')">
+    {% for i in (1..49) %}
+      <option value="{{ i }}">MIDI {{ i }}</option>
+    {% endfor %}
+  </select>
+
+  <!-- Beta Value Selector -->
+  <label for="betaSelect{{ genre }}"> ---------- Select Beta:</label>
+  <select id="betaSelect{{ genre }}" onchange="updateMidiSources('{{ genre }}')">
+    <option value="0.2">0.2</option>
+    <option value="0.5">0.5</option>
+    <option value="1.0">1.0</option>
+  </select>
+
+  <!-- Players Row -->
+  <div style="display: flex; justify-content: start; gap: 20px;">
+    <div class="player-container">
+      <h4>Ground Truth</h4>
+      <midi-player id="midiPlayer{{ genre }}GroundTruth" sound-font visualizer="#myVisualizer{{ genre }}GroundTruth"></midi-player>
+      <midi-visualizer type="piano-roll" id="myVisualizer{{ genre }}GroundTruth"></midi-visualizer>
+    </div>
+    <div class="player-container">
+      <h4>Base</h4>
+      <midi-player id="midiPlayer{{ genre }}Base" sound-font visualizer="#myVisualizer{{ genre }}Base"></midi-player>
+      <midi-visualizer type="piano-roll" id="myVisualizer{{ genre }}Base"></midi-visualizer>
+    </div>
+    <div class="player-container">
+      <h4>Mute</h4>
+      <midi-player id="midiPlayer{{ genre }}Mute" sound-font visualizer="#myVisualizer{{ genre }}Mute"></midi-player>
+      <midi-visualizer type="piano-roll" id="myVisualizer{{ genre }}Mute"></midi-visualizer>
+    </div>
+    <div class="player-container">
+      <h4>MuteGenre1</h4>
+      <midi-player id="midiPlayer{{ genre }}mute_genre1" sound-font visualizer="#myVisualizer{{ genre }}MuteGenre1"></midi-player>
+      <midi-visualizer type="piano-roll" id="myVisualizer{{ genre }}MuteGenre1"></midi-visualizer>
+    </div>
+    <div class="player-container">
+      <h4>MuteGenre2</h4>
+      <midi-player id="midiPlayer{{ genre }}mute_genre2" sound-font visualizer="#myVisualizer{{ genre }}MuteGenre2"></midi-player>
+      <midi-visualizer type="piano-roll" id="myVisualizer{{ genre }}MuteGenre2"></midi-visualizer>
+    </div>
+  </div>
+  {% endfor %}
+
+  <script>
+    function updateMidiSources(genre) {
+      var midiIndex = document.getElementById('midiSelect' + genre).value;
+      var betaValue = document.getElementById('betaSelect' + genre).value;
+      var subsets = ["GroundTruth", "Base", "Mute", "mute_genre1", "mute_genre2"];
+      subsets.forEach(function(subset) {
+        var midiPlayer = document.getElementById('midiPlayer' + genre + subset);
+        var filePrefix = subset === "GroundTruth" ? "Ground Truth/" : subset.toLowerCase() + "_" + betaValue + "/"; // Special case for Ground Truth
+        midiPlayer.src = "{{ site.baseurl }}/{{ page.root_dir }}/" + filePrefix  + genre + "/" + midiIndex + ".mid";
+      });
+    }
+
+    // Initialize MIDI players on first load for each genre
+    window.onload = function() {
+      {% for genre in page.genres %}
+        updateMidiSources('{{ genre }}');
+      {% endfor %}
+    };
+  </script>
+
+</div>

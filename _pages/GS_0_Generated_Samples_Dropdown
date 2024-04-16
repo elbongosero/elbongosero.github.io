@@ -1,0 +1,14 @@
+---
+layout: page
+title: Generated Examples
+nav: true
+nav_order: 80
+dropdown: true
+children:
+  - title: Reconstructions
+    permalink: /generated_examples/reconstructed_samples/
+  - title: Random Samples
+    permalink: /generated_examples/random_samples/
+  - title: Interpolated Samples
+    permalink: /generated_examples/interpolated_samples/
+---
