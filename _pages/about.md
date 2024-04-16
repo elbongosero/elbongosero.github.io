@@ -6,11 +6,6 @@ permalink: /
 subtitle: 
 ---
 
-{: .no_toc}
-
-> **Note**  
-> the URL address is temporary and will be updated if accepted for publication.
-
 
 ## **Listen to the Collected Samples**
 ---
