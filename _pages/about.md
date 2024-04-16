@@ -1,7 +1,7 @@
 ---
 layout: page
 title: HOME
-description: In this website, we provide a number of additional resources to complement the paper submitted to `ISMIR 2024`
+description: "ANON: A CROWD-SOURCED SYMBOLIC DATASET OF IMPROVISED HAND PERCUSSION RHYTHMS PAIRED WITH DRUM"
 permalink: /
 subtitle: 
 ---
