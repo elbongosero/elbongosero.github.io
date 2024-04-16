@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://generativedata.github.io/sitemap.xml
+Sitemap: https://anon-temporary-data.github.io/sitemap.xml
