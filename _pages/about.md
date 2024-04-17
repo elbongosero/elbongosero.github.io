@@ -6,6 +6,10 @@ permalink: /
 subtitle: 
 ---
 
+This site is dedicated the ANON Dataset, a large-scale, open-source symbolic dataset comprising expressive, improvised drum performances crowd-sourced from a pool of individuals with varying levels of musical expertise. 
+
+This dataset consists of 6,035 unique tapped sequences performed by 3,184 participants. Originating from an interactive installation, participants were invited to use a provided MIDI pad to tap along to a multi-voice drum pattern in a genre and tempo of their choosing. By providing minimal instructions, this task serves as an examination of how participants freely improvise alongside another rhythm.
+
 
 ## **Listen to the Collected Samples**
 ---
