@@ -111,32 +111,29 @@
 
   </article>
 
-<!--  print a message-->
-
   <style>
     .midi-player, .midi-visualizer {
       background-color: #4d4;
       display: block;
-      width: auto; /* Adjust the size of the players */
-      height: auto; /* Maintain aspect ratio */
+      width: auto;
+      height: auto;
     }
   </style>
 
   <!-- MIDI Player Integration -->
   <script src="https://cdn.jsdelivr.net/npm/tone@14.7.58"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/midi-player@1.5.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0"></script>
 
   
-
   <div class="experience-section">
-
     <h2>Experience 0</h2>
     <hr>
     <label for="attemptSelect0">Select Attempt:</label>
     <select id="attemptSelect0" onchange="updateMidiPlayers('0')">
       
-      <option value="1">Attempt 1</option>
+      <option value="1" selected>Attempt 1</option>
       
       <option value="2">Attempt 2</option>
       
@@ -337,25 +334,19 @@
     <div class="players">
       <midi-player id="midiPlayer0Bongo" sound-font visualizer="#midiVisualizer0Bongo"></midi-player>
       <midi-visualizer type="piano-roll" id="midiVisualizer0Bongo"></midi-visualizer>
-
-      <midi-player id="midiPlayer0DrumAndBongo" sound-font visualizer="#midiVisualizer0DrumAndBongo"></midi-player>
-      <midi-visualizer type="piano-roll" id="midiVisualizer0DrumAndBongo"></midi-visualizer>
-
-
+      <midi-player id="midiPlayer0Drum_And_Bongo" sound-font visualizer="#midiVisualizer0Drum_And_Bongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer0Drum_And_Bongo"></midi-visualizer>
     </div>
   </div>
   <br><br><br>
-
   
-
   <div class="experience-section">
-
     <h2>Experience 1</h2>
     <hr>
     <label for="attemptSelect1">Select Attempt:</label>
     <select id="attemptSelect1" onchange="updateMidiPlayers('1')">
       
-      <option value="1">Attempt 1</option>
+      <option value="1" selected>Attempt 1</option>
       
       <option value="2">Attempt 2</option>
       
@@ -766,25 +757,19 @@
     <div class="players">
       <midi-player id="midiPlayer1Bongo" sound-font visualizer="#midiVisualizer1Bongo"></midi-player>
       <midi-visualizer type="piano-roll" id="midiVisualizer1Bongo"></midi-visualizer>
-
-      <midi-player id="midiPlayer1DrumAndBongo" sound-font visualizer="#midiVisualizer1DrumAndBongo"></midi-player>
-      <midi-visualizer type="piano-roll" id="midiVisualizer1DrumAndBongo"></midi-visualizer>
-
-
+      <midi-player id="midiPlayer1Drum_And_Bongo" sound-font visualizer="#midiVisualizer1Drum_And_Bongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer1Drum_And_Bongo"></midi-visualizer>
     </div>
   </div>
   <br><br><br>
-
   
-
   <div class="experience-section">
-
     <h2>Experience 2</h2>
     <hr>
     <label for="attemptSelect2">Select Attempt:</label>
     <select id="attemptSelect2" onchange="updateMidiPlayers('2')">
       
-      <option value="1">Attempt 1</option>
+      <option value="1" selected>Attempt 1</option>
       
       <option value="2">Attempt 2</option>
       
@@ -1169,25 +1154,19 @@
     <div class="players">
       <midi-player id="midiPlayer2Bongo" sound-font visualizer="#midiVisualizer2Bongo"></midi-player>
       <midi-visualizer type="piano-roll" id="midiVisualizer2Bongo"></midi-visualizer>
-
-      <midi-player id="midiPlayer2DrumAndBongo" sound-font visualizer="#midiVisualizer2DrumAndBongo"></midi-player>
-      <midi-visualizer type="piano-roll" id="midiVisualizer2DrumAndBongo"></midi-visualizer>
-
-
+      <midi-player id="midiPlayer2Drum_And_Bongo" sound-font visualizer="#midiVisualizer2Drum_And_Bongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer2Drum_And_Bongo"></midi-visualizer>
     </div>
   </div>
   <br><br><br>
-
   
-
   <div class="experience-section">
-
     <h2>Experience 3</h2>
     <hr>
     <label for="attemptSelect3">Select Attempt:</label>
     <select id="attemptSelect3" onchange="updateMidiPlayers('3')">
       
-      <option value="1">Attempt 1</option>
+      <option value="1" selected>Attempt 1</option>
       
       <option value="2">Attempt 2</option>
       
@@ -1430,25 +1409,19 @@
     <div class="players">
       <midi-player id="midiPlayer3Bongo" sound-font visualizer="#midiVisualizer3Bongo"></midi-player>
       <midi-visualizer type="piano-roll" id="midiVisualizer3Bongo"></midi-visualizer>
-
-      <midi-player id="midiPlayer3DrumAndBongo" sound-font visualizer="#midiVisualizer3DrumAndBongo"></midi-player>
-      <midi-visualizer type="piano-roll" id="midiVisualizer3DrumAndBongo"></midi-visualizer>
-
-
+      <midi-player id="midiPlayer3Drum_And_Bongo" sound-font visualizer="#midiVisualizer3Drum_And_Bongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer3Drum_And_Bongo"></midi-visualizer>
     </div>
   </div>
   <br><br><br>
-
   
-
   <div class="experience-section">
-
     <h2>Experience 4</h2>
     <hr>
     <label for="attemptSelect4">Select Attempt:</label>
     <select id="attemptSelect4" onchange="updateMidiPlayers('4')">
       
-      <option value="1">Attempt 1</option>
+      <option value="1" selected>Attempt 1</option>
       
       <option value="2">Attempt 2</option>
       
@@ -1753,42 +1726,42 @@
     <div class="players">
       <midi-player id="midiPlayer4Bongo" sound-font visualizer="#midiVisualizer4Bongo"></midi-player>
       <midi-visualizer type="piano-roll" id="midiVisualizer4Bongo"></midi-visualizer>
-
-      <midi-player id="midiPlayer4DrumAndBongo" sound-font visualizer="#midiVisualizer4DrumAndBongo"></midi-player>
-      <midi-visualizer type="piano-roll" id="midiVisualizer4DrumAndBongo"></midi-visualizer>
-
-
+      <midi-player id="midiPlayer4Drum_And_Bongo" sound-font visualizer="#midiVisualizer4Drum_And_Bongo"></midi-player>
+      <midi-visualizer type="piano-roll" id="midiVisualizer4Drum_And_Bongo"></midi-visualizer>
     </div>
   </div>
   <br><br><br>
-
   
 
   <script>
     function updateMidiPlayers(experience) {
       var attemptIndex = document.getElementById('attemptSelect' + experience).value;
       var filePrefix = "Disco/experience_" + experience + "/" + attemptIndex + "/";
-      // print file prefix
-        console.log(filePrefix);
-      document.getElementById('midiPlayer' + experience + 'Bongo').src = "/assets/midi_organized_by_experience/" + filePrefix + "bongo.mid";
-      document.getElementById('midiPlayer' + experience + 'DrumAndBongo').src = "/assets/midi_organized_by_experience/" + filePrefix + "drum_and_bongo.mid";
+      console.log(filePrefix);
+      var players = ['Bongo', 'Drum_And_Bongo'];
+      players.forEach(function(player) {
+        var playerElement = document.getElementById('midiPlayer' + experience + player);
+        var visualizerElement = document.getElementById('midiVisualizer' + experience + player);
+        playerElement.src = "/assets/midi_organized_by_experience/" + filePrefix + player.toLowerCase() + ".mid";
+        // Reset visualizer to reload with new data
+        visualizerElement.setAttribute('src', playerElement.src);
+      });
     }
 
     window.onload = function() {
       
-        updateMidiPlayers('0');
+      updateMidiPlayers('0');
       
-        updateMidiPlayers('1');
+      updateMidiPlayers('1');
       
-        updateMidiPlayers('2');
+      updateMidiPlayers('2');
       
-        updateMidiPlayers('3');
+      updateMidiPlayers('3');
       
-        updateMidiPlayers('4');
+      updateMidiPlayers('4');
       
     };
   </script>
-
 </div>
 
     </div>
