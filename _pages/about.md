@@ -22,13 +22,44 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 - [Subset 09: _Bongo Improvisations along with **Rock** Drum Patterns_]({{site.baseurl}}/explore/rock/)
 - [Subset 10: _Bongo Improvisations along with **Soul** Drum Patterns_]({{site.baseurl}}/explore/soul/)
 
-## **Global Analysis**
+## **Dataset Analysis**
 
-The images below show global analysis of the dataset.
+The images below display some preliminary analysis of the entire dataset.
 
 ![Alt text](../assets/img/analysis/attempts_by_expertise_histogram.png)
-<figcaption>Caption goes here</figcaption>
+<figcaption>Number of total attempts by level of expertise.</figcaption>
+
+![Alt text](../assets/img/analysis/attempts_by_expertise_plot.png)
+<figcaption>Number of attempts per session by level of expertise.</figcaption>
+
+![Alt text](../assets/img/analysis/attempts_by_genre_and_exp_heatmap.png)
+<figcaption>Number of total attempts by genre and level of expertise.</figcaption>
+
+![Alt text](../assets/img/analysis/attempts_by_genre_histogram.png)
+<figcaption>Number of total attempts by genre.</figcaption>
+
+![Alt text](../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png)
+<figcaption>Jaccard similarity among all improvisations for different musical levels and pattern.</figcaption>
+
+![Alt text](../assets/img/analysis/step_density_of_improv_and_drum_patterns.png)
+<figcaption>Onset density and metrical weight per step of drum patterns and improvisations.</figcaption>
+
+![Alt text](../assets/img/analysis/unique_patterns_by_genre_and_exp_heatmap.png)
+<figcaption>Number of unique patterns tested by genre and musical expertise.</figcaption>
+
 
 ## **Electronic Genre Analysis**
 
 The images below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
+
+![Alt text](../assets/img/analysis/attempts_per_electronic_pattern_histogram.png)
+<figcaption>Number of attempts per each Electronic pattern.</figcaption>
+
+![Alt text](../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png)
+<figcaption>Jaccard similarities by each Electronic pattern and level of musical expertise</figcaption>
+
+![Alt text](../assets/img/analysis/jaccard_dist_for_each_electronic_pattern.png)
+<figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
+
+![Alt text](../assets/img/analysis/electronic_jaccard_mean_std.png)
+<figcaption>Jaccard similarity means and standard deviation for every pattern in the Electronic music genre.</figcaption>
