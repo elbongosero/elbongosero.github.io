@@ -66,6 +66,7 @@ The images below display some preliminary analysis of the entire dataset.
 <figcaption>Number of unique patterns tested by genre and musical expertise.</figcaption>
 
 <br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 
 ## **Electronic Genre Analysis**
