@@ -9,7 +9,6 @@ subtitle:
 This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic dataset consisting of 6,035 improvised tapped sequences performed by 3,184 participants with varying levels of musical expertise. Each sample contains expressive timing and dynamics information and is annotated with the participant’s self-reported level of musical expertise, the genre of the selected pattern, the chosen tempo, the total duration to complete the activity, and a user-rating for their performance and how much they enjoyed the exhibit. The drum patterns from our in-house collection are available as text files containing the tempo and each note onset in the following format: MIDI note number, start time (seconds), start time (quarter notes). 
 
 <br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
 ## **Listen to the Collected Samples**
 
@@ -26,8 +25,6 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 - [Subset 10: _Bongo Improvisations along with **Soul** Drum Patterns_]({{site.baseurl}}/explore/soul/)
 
 <br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-
 
 ## **Dataset Analysis**
 
