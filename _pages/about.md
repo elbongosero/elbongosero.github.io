@@ -66,23 +66,30 @@ The images below display some preliminary analysis of the entire dataset.
 <figcaption>Number of unique patterns tested by genre and musical expertise.</figcaption>
 
 <br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
 
 ## **Electronic Genre Analysis**
 
 The images below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
+<br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/attempts_per_electronic_pattern_histogram.png)
 <figcaption>Number of attempts per each Electronic pattern.</figcaption>
 
+<br> <!-- Add vertical space here -->
+
 ![Alt text](../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png)
 <figcaption>Jaccard similarities by each Electronic pattern and level of musical expertise</figcaption>
+
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/jaccard_dist_for_each_electronic_pattern.png)
 <figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
 
+<br> <!-- Add vertical space here -->
+
 ![Alt text](../assets/img/analysis/electronic_jaccard_mean_std.png)
 <figcaption>Jaccard similarity means and standard deviation for every pattern in the Electronic music genre.</figcaption>
+
+<br> <!-- Add vertical space here -->
