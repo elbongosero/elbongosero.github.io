@@ -81,6 +81,7 @@ The figures below display some preliminary analysis of the entire dataset.
 The figures below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/attempts_per_electronic_pattern_histogram.png)
 <figcaption>Number of attempts per each Electronic pattern.</figcaption>
