@@ -83,8 +83,11 @@ The figures below show preliminary analysis of the improvisations performed alon
 
 <figure>
   <img src="../assets/img/analysis/attempts_per_electronic_pattern_histogram.png" alt="Image">
-  <figcaption style="margin-top: 5px;">Number of attempts per each Electronic pattern.</figcaption>
+  <figcaption style="margin-top: 1px;">Number of attempts per each Electronic pattern.</figcaption>
 </figure>
+
+<br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/attempts_per_electronic_pattern_histogram.png)
 <figcaption>Number of attempts per each Electronic pattern.</figcaption>
