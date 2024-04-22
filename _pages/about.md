@@ -75,10 +75,9 @@ The images below display some preliminary analysis of the entire dataset.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
 
-
-### **Electronic Genre Analysis**
-The images below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
 ---
+### Electronic Genre Analysis
+The images below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
 
