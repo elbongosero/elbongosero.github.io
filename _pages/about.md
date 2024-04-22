@@ -29,7 +29,7 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 ## **Dataset Analysis**
 ---
 ### Global Analysis
-The images below display some preliminary analysis of the entire dataset.
+The figures below display some preliminary analysis of the entire dataset.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
 
@@ -77,9 +77,14 @@ The images below display some preliminary analysis of the entire dataset.
 
 ---
 ### Electronic Genre Analysis
-The images below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
+The figures below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
+
+<figure>
+  <img src="../assets/img/analysis/attempts_per_electronic_pattern_histogram.png" alt="Image">
+  <figcaption style="margin-top: 5px;">Number of attempts per each Electronic pattern.</figcaption>
+</figure>
 
 ![Alt text](../assets/img/analysis/attempts_per_electronic_pattern_histogram.png)
 <figcaption>Number of attempts per each Electronic pattern.</figcaption>
