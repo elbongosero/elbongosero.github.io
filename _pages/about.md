@@ -32,6 +32,7 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 The figures below display some preliminary analysis of the entire dataset.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/attempts_by_expertise_histogram.png)
 <figcaption>Number of total attempts by level of expertise.</figcaption>
