@@ -28,7 +28,8 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 
 ## **Dataset Analysis**
 ---
-### The images below display some preliminary analysis of the entire dataset.
+### Global Analysis
+The images below display some preliminary analysis of the entire dataset.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
 
@@ -75,8 +76,7 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 <br> <!-- Add vertical space here -->
 
 
-## **Electronic Genre Analysis**
-
+### **Electronic Genre Analysis**
 The images below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
 ---
 <br> <!-- Add vertical space here -->
@@ -86,18 +86,28 @@ The images below show preliminary analysis of the improvisations performed along
 <figcaption>Number of attempts per each Electronic pattern.</figcaption>
 
 <br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png)
 <figcaption>Jaccard similarities by each Electronic pattern and level of musical expertise</figcaption>
 
+<br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/jaccard_dist_for_each_electronic_pattern.png)
 <figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
 
 <br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
+
+![Alt text](../assets/img/analysis/jaccard_drum_improv_distribution_for_all_electronic_patterns_histogram.png)
+<figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
+
+<br> <!-- Add vertical space here -->
+<br> <!-- Add vertical space here -->
 
 ![Alt text](../assets/img/analysis/electronic_jaccard_mean_std.png)
 <figcaption>Jaccard similarity means and standard deviation for every pattern in the Electronic music genre.</figcaption>
 
+<br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
