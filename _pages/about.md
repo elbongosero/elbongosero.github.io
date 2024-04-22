@@ -28,7 +28,7 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 
 ## **Dataset Analysis**
 ---
-# The images below display some preliminary analysis of the entire dataset.
+### The images below display some preliminary analysis of the entire dataset.
 <br> <!-- Add vertical space here -->
 <br> <!-- Add vertical space here -->
 
