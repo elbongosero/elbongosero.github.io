@@ -126,6 +126,8 @@
   <div id="midiPlayerContainer">
     <midi-player id="midiPlayerBongo" sound-font visualizer="#midiPlayerVisBongo"></midi-player>
     <midi-visualizer type="piano-roll" id="midiPlayerVisBongo"></midi-visualizer>
+    <midi-player id="midiPlayerBongoAndDrum" sound-font visualizer="#midiPlayerVisBongoAndDrum"></midi-player>
+    <midi-visualizer type="piano-roll" id="midiPlayerVisBongoAndDrum"></midi-visualizer>
   </div>
 </div>
 
@@ -212,6 +214,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var playerBongo = document.getElementById('midiPlayerBongo');
     playerBongo.src = midiFileBongo;
 
+    var midiFileBongoAndDrum = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_and_drum_${attempt - 1}.mid`;
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = midiFileBongoAndDrum;
   };
 });
 </script>
