@@ -12,29 +12,29 @@ def generate_directory_json(base_path):
     root_dir = os.path.join(base_path, 'assets/midi_organized_by_source_drums')
     data = []
 
-    # Iterate over each style directory
-    for style in os.listdir(root_dir):
+    # Iterate over each style directory, sorted alphabetically
+    for style in sorted(os.listdir(root_dir)):
         style_path = os.path.join(root_dir, style)
         if os.path.isdir(style_path):
             style_dict = {'style': style, 'sources': []}
 
-            # Iterate over each source directory within the style directory
-            for source in os.listdir(style_path):
+            # Iterate over each source directory within the style directory, sorted alphabetically
+            for source in sorted(os.listdir(style_path)):
                 source_path = os.path.join(style_path, source)
                 if os.path.isdir(source_path):
                     source_dict = {'name': source, 'experiences': []}
 
-                    # Iterate over each experience directory within the source directory
-                    for experience in os.listdir(source_path):
+                    # Iterate over each experience directory within the source directory, sorted alphabetically
+                    for experience in sorted(os.listdir(source_path)):
                         experience_path = os.path.join(source_path, experience)
                         if os.path.isdir(experience_path):
                             # Filter and count only 'bongo_*.mid' files
                             bongo_files = [f for f in os.listdir(experience_path) if
                                            f.startswith('bongo_') and f.endswith('.mid')]
-                            num_bongo_files = len(bongo_files) // 2
+                            num_bongo_files = len(bongo_files)
 
                             # Extract the experience level from the folder name, assuming format "experience_i"
-                            exp_level = int(experience.split('_')[-1]) + 1
+                            exp_level = int(experience.split('_')[-1])
                             experience_dict = {
                                 'experience': experience,
                                 'num_files': num_bongo_files,
@@ -42,9 +42,13 @@ def generate_directory_json(base_path):
                             }
                             source_dict['experiences'].append(experience_dict)
 
+                    source_dict['experiences'].sort(key=lambda x: x['experience'])
                     style_dict['sources'].append(source_dict)
+            style_dict['sources'].sort(key=lambda x: x['name'])
             data.append(style_dict)
 
+    # Sort data by style
+    data.sort(key=lambda x: x['style'])
     return data
 
 
@@ -56,6 +60,7 @@ def main():
     with open(os.path.join(base_path, 'assets/data/sources.json'), 'w') as json_file:
         json.dump(directory_data, json_file, indent=4)
 
+    return directory_data
 
 if __name__ == "__main__":
-    main()
+    directory_data = main()
