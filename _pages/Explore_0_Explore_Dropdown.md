@@ -5,6 +5,9 @@ nav: true
 nav_order: 100
 dropdown: true
 children:
+  - title: All Attempts
+    permalink: /explore/all_attempts/
+  - title: divider
   - title: 01 Afrobeat
     permalink: /explore/afrobeat/
   - title: 02 Afrocuban
