@@ -13,6 +13,15 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 ## **Listen to the Collected Samples**
 
 ---
+To listen to or visualize the entire dataset, use the `Inspect Data` dropdown menu located at the corner of this page.
+
+If you want to explore the entire dataset navigate to the following page:
+
+- [_Explore **Entire Dataset** by Style/Source Drum/Expertise_ ]({{site.baseurl}}/explore/all_attempts/)
+
+
+Also, the following pages allow you to listen to subsets of the data if you are interested in a specific style:
+
 - [Subset 01: _Bongo Improvisations along with **Afrobeat** Drum Patterns_]({{site.baseurl}}/explore/afrobeat/)
 - [Subset 02: _Bongo Improvisations along with **Afrocuban** Drum Patterns_]({{site.baseurl}}/explore/afrocuban/)
 - [Subset 03: _Bongo Improvisations along with **Bossanova** Drum Patterns_]({{site.baseurl}}/explore/bossanova/)
