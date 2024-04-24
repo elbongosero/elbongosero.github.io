@@ -16,6 +16,10 @@ The dataset and the API can be accessed through the following link:
 
 [**Download**](/assets/dataset_and_API.zip){: .btn}
 
+If you want to quickly access and explore the dataset and the API, you can use the following Colab notebook:
+
+[**Open in Colab**](https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing){: .btn}
+
 ## **Listen to the Collected Samples**
 
 ---
