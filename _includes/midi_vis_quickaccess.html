@@ -1,0 +1,134 @@
+
+<div class="midi-selector">
+
+  <select id="styleSelect" onchange="clearNotes(); updateSources(); updateExperiences(); updateAttempts(); ">
+    <option selected disabled>Choose Style</option>
+  </select>
+
+  <select id="sourceSelect" onchange="clearNotes(); updateExperiences(); updateAttempts(); ">
+    <option selected disabled>Choose Drum Pattern</option>
+  </select>
+
+  <select id="experienceSelect" onchange="clearNotes(); updateAttempts(); ">
+    <option selected disabled>Choose Participant Expertise Level</option>
+  </select>
+
+  <select id="attemptSelect" onchange="loadMIDIFile()">
+    <option selected disabled>Choose Attempt</option>
+  </select>
+
+  <br><br>
+
+  <div id="midiPlayerContainer">
+
+    <midi-player id="midiPlayerBongoAndDrum" sound-font visualizer="#midiPlayerVisBongoAndDrum"></midi-player>
+    <midi-visualizer type="piano-roll" id="midiPlayerVisBongoAndDrum"></midi-visualizer>
+
+
+
+
+  </div>
+</div>
+
+<!-- MIDI Player Integration -->
+<script src="https://cdn.jsdelivr.net/npm/tone@14.7.58"></script>
+<script src="https://cdn.jsdelivr.net/npm/@magenta/midi-player@1.5.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch('/assets/data/sources.json')
+    .then(response => response.json())
+    .then(data => {
+      var styleSelect = document.getElementById('styleSelect');
+      data.forEach(function(style) {
+        var option = document.createElement('option');
+        option.value = style.style;
+        option.textContent = style.style;
+        styleSelect.appendChild(option);
+      });
+    });
+
+  window.updateSources = function() {
+    var style = document.getElementById('styleSelect').value;
+    var sourceSelect = document.getElementById('sourceSelect');
+    sourceSelect.innerHTML = '<option selected disabled>Choose Drum Pattern</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var sources = data.find(d => d.style === style).sources;
+        sources.forEach(function(source) {
+          var option = document.createElement('option');
+          option.value = source.name;
+          option.textContent = source.name;
+          sourceSelect.appendChild(option);
+        });
+      });
+  };
+
+  window.updateExperiences = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experienceSelect = document.getElementById('experienceSelect');
+    experienceSelect.innerHTML = '<option selected disabled>Choose Participant Expertise Level</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var experiences = data.find(d => d.style === style).sources.find(s => s.name === source).experiences;
+        experiences.forEach(function(exp) {
+          var option = document.createElement('option');
+          option.value = exp.experience;
+          option.textContent = "Level " + exp.experience_level;  // Simplified display format
+          experienceSelect.appendChild(option);
+        });
+      });
+  };
+
+  window.updateAttempts = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attemptSelect = document.getElementById('attemptSelect');
+    attemptSelect.innerHTML = '<option selected disabled>Choose Attempt</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var numFiles = data.find(d => d.style === style).sources.find(s => s.name === source).experiences.find(e => e.experience === experience).num_files;
+        for (let i = 1; i <= numFiles; i++) {
+          var option = document.createElement('option');
+          option.value = i;
+          option.textContent = "Attempt " + i;
+          attemptSelect.appendChild(option);
+        }
+      });
+  };
+
+  window.clearNotes = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attempt = document.getElementById('attemptSelect').value;
+
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = '';
+
+    var playerBongoVisualizerAndDrum = document.getElementById('midiPlayerVisBongoAndDrum');
+    playerBongoVisualizerAndDrum.src = '';
+  };
+  window.loadMIDIFile = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attempt = document.getElementById('attemptSelect').value;
+    var midiFileBongo = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_${attempt - 1}.mid`;
+
+    var midiFileBongoAndDrum = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_and_drum_${attempt - 1}.mid`;
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = midiFileBongoAndDrum;
+
+    var playerBongoVisualizerAndDrum = document.getElementById('midiPlayerVisBongoAndDrum');
+    playerBongoVisualizerAndDrum.setAttribute('src', playerBongoAndDrum.src);
+  };
+});
+</script>

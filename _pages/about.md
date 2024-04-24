@@ -1,24 +1,30 @@
 ---
-layout: page
+layout: about
 title: About
-description: "ANON: A CROWD-SOURCED SYMBOLIC DATASET OF IMPROVISED HAND PERCUSSION RHYTHMS PAIRED WITH DRUM"
+description1: "ANON Dataset"
+description2: "A Crowd-Sourced Symbolic Dataset of Improvised Hand Percussion Rhythms Paired with Drum"
 permalink: /
 subtitle: 
 ---
 
-This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic dataset consisting of 6,035 improvised tapped sequences performed by 3,184 participants with varying levels of musical expertise. Each sample contains expressive timing and dynamics information and is annotated with the participant’s self-reported level of musical expertise, the genre of the selected pattern, the chosen tempo, the total duration to complete the activity, and a user-rating for their performance and how much they enjoyed the exhibit. The drum patterns from our in-house collection are available as text files containing the tempo and each note onset in the following format: MIDI note number, start time (seconds), start time (quarter notes). 
+This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic dataset consisting of **6,035 improvised tapped sequences** performed by **3,184 participants** with varying levels of musical expertise. 
+
+Each sample contains expressive timing and dynamics information and is annotated with the participant’s self-reported level of musical expertise, 
+the genre of the selected pattern, the chosen tempo, the total duration to complete the activity, and a user-rating for their performance and how much they enjoyed the exhibit. 
 
 <br> <!-- Add vertical space here -->
 
-## **Dataset and API**
 
-The dataset and the API can be accessed through the following link:
+[**Download Dataset & API**](/assets/dataset_and_API.zip){: .btn} [**Explore Dataset in Colab**](https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing){: .btn}
 
-[**Download**](/assets/dataset_and_API.zip){: .btn}
 
-If you want to quickly access and explore the dataset and the API, you can use the following Colab notebook:
+<br> <!-- Add vertical space here -->
 
-[**Open in Colab**](https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing){: .btn}
+[//]: # (include _layouts/midi_vis_quickaccess.html)
+
+{% include midi_vis_quickaccess.html %}
+
+<br> <!-- Add vertical space here -->
 
 ## **Listen to the Collected Samples**
 
@@ -27,7 +33,7 @@ To listen to or visualize the entire dataset, use the `Inspect Data` dropdown me
 
 If you want to explore the entire dataset navigate to the following page:
 
-- [_Explore **Entire Dataset** by Style/Source Drum/Expertise_ ]({{site.baseurl}}/explore/all_attempts/)
+- [`Explore Entire Dataset by Style/Source Drum/Expertise`]({{site.baseurl}}/explore/all_attempts/)
 
 
 Also, the following pages allow you to listen to subsets of the data if you are interested in a specific style:
@@ -45,89 +51,57 @@ Also, the following pages allow you to listen to subsets of the data if you are 
 
 <br> <!-- Add vertical space here -->
 
-## **Dataset Analysis**
+## **Dataset Statistics**
 ---
-### Global Analysis
-The figures below display some preliminary analysis of the entire dataset.
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/attempts_by_expertise_histogram.png)
-<figcaption>Number of total attempts by level of expertise.</figcaption>
 
 <br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/attempts_by_expertise_plot.png)
-<figcaption>Number of attempts per session by level of expertise.</figcaption>
 
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/attempts_by_genre_and_exp_heatmap.png)
-<figcaption>Number of total attempts by genre and level of expertise.</figcaption>
+_**Number of total attempts by level of expertise:**_
+
+![image-title-here](assets/img/analysis/attempts_by_expertise_histogram.png){:class="img-responsive"}{:width="30%"}
+
 
 <br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/attempts_by_genre_histogram.png)
-<figcaption>Number of total attempts by genre.</figcaption>
 
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
+**_Number of attempts per session by level of expertise:_**
 
-![Alt text](../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png)
-<figcaption>Jaccard similarity among all improvisations for different musical levels and pattern.</figcaption>
+![image-title-here](assets/img/analysis/attempts_by_expertise_plot.png){:class="img-responsive"}{:width="30%"}
+
 
 <br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/step_density_of_improv_and_drum_patterns.png)
-<figcaption>Onset density and metrical weight per step of drum patterns and improvisations.</figcaption>
+**_Number of total attempts by genre and level of expertise:_**
 
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-
-![Alt text](../assets/img/analysis/unique_patterns_by_genre_and_exp_heatmap.png)
-<figcaption>Number of unique patterns tested by genre and musical expertise.</figcaption>
+![image-title-here](assets/img/analysis/attempts_by_genre_and_exp_heatmap.png){:class="img-responsive"}{:width="30%"}
 
 <br> <!-- Add vertical space here -->
+
+**_Number of total attempts by genre:_**
+
+![image-title-here](assets/img/analysis/attempts_by_genre_histogram.png){:class="img-responsive"}{:width="30%"}
+
+<br> <!-- Add vertical space here -->
+
+
+**_Onset density and metrical weight per step of drum patterns and improvisations:_**
+
+![image-title-here](assets/img/analysis/step_density_of_improv_and_drum_patterns.png){:class="img-responsive"}{:width="30%"}
+
+
+<br> <!-- Add vertical space here -->
+
+**_Number of unique patterns tested by genre and musical expertise:_**
+
+![image-title-here](assets/img/analysis/unique_patterns_by_genre_and_exp_heatmap.png){:class="img-responsive"}{:width="30%"}
+
+
 <br> <!-- Add vertical space here -->
 
 ---
-### Electronic Genre Analysis
-The figures below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/attempts_per_electronic_pattern_histogram.png)
-<figcaption>Number of attempts per each Electronic pattern.</figcaption>
 
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
 
-![Alt text](../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png)
-<figcaption>Jaccard similarities by each Electronic pattern and level of musical expertise</figcaption>
-
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-
-![Alt text](../assets/img/analysis/jaccard_dist_for_each_electronic_pattern.png)
-<figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
-
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-
-![Alt text](../assets/img/analysis/jaccard_drum_improv_distribution_for_all_electronic_patterns_histogram.png)
-<figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
-
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-
-![Alt text](../assets/img/analysis/electronic_jaccard_mean_std.png)
-<figcaption>Jaccard similarity means and standard deviation for every pattern in the Electronic music genre.</figcaption>
-
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
