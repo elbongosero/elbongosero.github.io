@@ -12,7 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Anon  ISMIR2024</title>
     <meta name="author" content="Anon  ISMIR2024">
-    <meta name="description" content="ANON: A CROWD-SOURCED SYMBOLIC DATASET OF IMPROVISED HAND PERCUSSION RHYTHMS PAIRED WITH DRUM">
+    <meta name="description" content="Complementary data for the ISMIR 2024 paper submission
+">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -105,24 +106,160 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">About</h1>
-            <p class="post-description">ANON: A CROWD-SOURCED SYMBOLIC DATASET OF IMPROVISED HAND PERCUSSION RHYTHMS PAIRED WITH DRUM</p>
+            <h1>ANON Dataset</h1>
+            <h3>A Crowd-Sourced Symbolic Dataset of Improvised Hand Percussion Rhythms Paired with Drum</h3>
           </header>
-
+            <br>
           <article>
-            <p>This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic dataset consisting of 6,035 improvised tapped sequences performed by 3,184 participants with varying levels of musical expertise. Each sample contains expressive timing and dynamics information and is annotated with the participant’s self-reported level of musical expertise, the genre of the selected pattern, the chosen tempo, the total duration to complete the activity, and a user-rating for their performance and how much they enjoyed the exhibit. The drum patterns from our in-house collection are available as text files containing the tempo and each note onset in the following format: MIDI note number, start time (seconds), start time (quarter notes).</p>
+            <p>This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic dataset consisting of <strong>6,035 improvised tapped sequences</strong> performed by <strong>3,184 participants</strong> with varying levels of musical expertise.</p>
+
+<p>Each sample contains expressive timing and dynamics information and is annotated with the participant’s self-reported level of musical expertise, 
+the genre of the selected pattern, the chosen tempo, the total duration to complete the activity, and a user-rating for their performance and how much they enjoyed the exhibit.</p>
 
 <p><br> <!-- Add vertical space here --></p>
 
-<h2 id="dataset-and-api"><strong>Dataset and API</strong></h2>
+<p><a href="/assets/dataset_and_API.zip" class="btn"><strong>Download Dataset &amp; API</strong></a> <a href="https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing" class="btn" rel="external nofollow noopener" target="_blank"><strong>Explore Dataset in Colab</strong></a></p>
 
-<p>The dataset and the API can be accessed through the following link:</p>
+<p><br> <!-- Add vertical space here --></p>
 
-<p><a href="/assets/dataset_and_API.zip" class="btn"><strong>Download</strong></a></p>
+<div class="midi-selector">
 
-<p>If you want to quickly access and explore the dataset and the API, you can use the following Colab notebook:</p>
+  <select id="styleSelect" onchange="clearNotes(); updateSources(); updateExperiences(); updateAttempts(); ">
+    <option selected disabled>Choose Style</option>
+  </select>
 
-<p><a href="https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing" class="btn" rel="external nofollow noopener" target="_blank"><strong>Open in Colab</strong></a></p>
+  <select id="sourceSelect" onchange="clearNotes(); updateExperiences(); updateAttempts(); ">
+    <option selected disabled>Choose Drum Pattern</option>
+  </select>
+
+  <select id="experienceSelect" onchange="clearNotes(); updateAttempts(); ">
+    <option selected disabled>Choose Participant Expertise Level</option>
+  </select>
+
+  <select id="attemptSelect" onchange="loadMIDIFile()">
+    <option selected disabled>Choose Attempt</option>
+  </select>
+
+  <br><br>
+
+  <div id="midiPlayerContainer">
+
+    <midi-player id="midiPlayerBongoAndDrum" sound-font="" visualizer="#midiPlayerVisBongoAndDrum"></midi-player>
+    <midi-visualizer type="piano-roll" id="midiPlayerVisBongoAndDrum"></midi-visualizer>
+
+
+
+
+  </div>
+</div>
+
+<!-- MIDI Player Integration -->
+<script src="https://cdn.jsdelivr.net/npm/tone@14.7.58"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@magenta/midi-player@1.5.0"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch('/assets/data/sources.json')
+    .then(response => response.json())
+    .then(data => {
+      var styleSelect = document.getElementById('styleSelect');
+      data.forEach(function(style) {
+        var option = document.createElement('option');
+        option.value = style.style;
+        option.textContent = style.style;
+        styleSelect.appendChild(option);
+      });
+    });
+
+  window.updateSources = function() {
+    var style = document.getElementById('styleSelect').value;
+    var sourceSelect = document.getElementById('sourceSelect');
+    sourceSelect.innerHTML = '<option selected disabled>Choose Drum Pattern</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var sources = data.find(d => d.style === style).sources;
+        sources.forEach(function(source) {
+          var option = document.createElement('option');
+          option.value = source.name;
+          option.textContent = source.name;
+          sourceSelect.appendChild(option);
+        });
+      });
+  };
+
+  window.updateExperiences = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experienceSelect = document.getElementById('experienceSelect');
+    experienceSelect.innerHTML = '<option selected disabled>Choose Participant Expertise Level</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var experiences = data.find(d => d.style === style).sources.find(s => s.name === source).experiences;
+        experiences.forEach(function(exp) {
+          var option = document.createElement('option');
+          option.value = exp.experience;
+          option.textContent = "Level " + exp.experience_level;  // Simplified display format
+          experienceSelect.appendChild(option);
+        });
+      });
+  };
+
+  window.updateAttempts = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attemptSelect = document.getElementById('attemptSelect');
+    attemptSelect.innerHTML = '<option selected disabled>Choose Attempt</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var numFiles = data.find(d => d.style === style).sources.find(s => s.name === source).experiences.find(e => e.experience === experience).num_files;
+        for (let i = 1; i <= numFiles; i++) {
+          var option = document.createElement('option');
+          option.value = i;
+          option.textContent = "Attempt " + i;
+          attemptSelect.appendChild(option);
+        }
+      });
+  };
+
+  window.clearNotes = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attempt = document.getElementById('attemptSelect').value;
+
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = '';
+
+    var playerBongoVisualizerAndDrum = document.getElementById('midiPlayerVisBongoAndDrum');
+    playerBongoVisualizerAndDrum.src = '';
+  };
+  window.loadMIDIFile = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attempt = document.getElementById('attemptSelect').value;
+    var midiFileBongo = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_${attempt - 1}.mid`;
+
+    var midiFileBongoAndDrum = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_and_drum_${attempt - 1}.mid`;
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = midiFileBongoAndDrum;
+
+    var playerBongoVisualizerAndDrum = document.getElementById('midiPlayerVisBongoAndDrum');
+    playerBongoVisualizerAndDrum.setAttribute('src', playerBongoAndDrum.src);
+  };
+});
+</script>
+
+<p><br> <!-- Add vertical space here --></p>
 
 <h2 id="listen-to-the-collected-samples"><strong>Listen to the Collected Samples</strong></h2>
 
@@ -132,7 +269,7 @@
 <p>If you want to explore the entire dataset navigate to the following page:</p>
 
 <ul>
-  <li><a href="/explore/all_attempts/"><em>Explore <strong>Entire Dataset</strong> by Style/Source Drum/Expertise</em> </a></li>
+  <li><a href="/explore/all_attempts/"><code class="language-plaintext highlighter-rouge">Explore Entire Dataset by Style/Source Drum/Expertise</code></a></li>
 </ul>
 
 <p>Also, the following pages allow you to listen to subsets of the data if you are interested in a specific style:</p>
@@ -152,92 +289,49 @@
 
 <p><br> <!-- Add vertical space here --></p>
 
-<h2 id="dataset-analysis"><strong>Dataset Analysis</strong></h2>
+<h2 id="dataset-statistics"><strong>Dataset Statistics</strong></h2>
 <hr>
-<h3 id="global-analysis">Global Analysis</h3>
-<p>The figures below display some preliminary analysis of the entire dataset.
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
 
-<p><img src="../assets/img/analysis/attempts_by_expertise_histogram.png" alt="Alt text"></p>
-<figcaption>Number of total attempts by level of expertise.</figcaption>
+<p><br> <!-- Add vertical space here --></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><em><strong>Number of total attempts by level of expertise:</strong></em></p>
 
-<p><img src="../assets/img/analysis/attempts_by_expertise_plot.png" alt="Alt text"></p>
-<figcaption>Number of attempts per session by level of expertise.</figcaption>
+<p><img src="assets/img/analysis/attempts_by_expertise_histogram.png" alt="image-title-here" class="img-responsive" width="30%"></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><br> <!-- Add vertical space here --></p>
 
-<p><img src="../assets/img/analysis/attempts_by_genre_and_exp_heatmap.png" alt="Alt text"></p>
-<figcaption>Number of total attempts by genre and level of expertise.</figcaption>
+<p><strong><em>Number of attempts per session by level of expertise:</em></strong></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><img src="assets/img/analysis/attempts_by_expertise_plot.png" alt="image-title-here" class="img-responsive" width="30%"></p>
 
-<p><img src="../assets/img/analysis/attempts_by_genre_histogram.png" alt="Alt text"></p>
-<figcaption>Number of total attempts by genre.</figcaption>
+<p><br> <!-- Add vertical space here --></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><strong><em>Number of total attempts by genre and level of expertise:</em></strong></p>
 
-<p><img src="../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png" alt="Alt text"></p>
-<figcaption>Jaccard similarity among all improvisations for different musical levels and pattern.</figcaption>
+<p><img src="assets/img/analysis/attempts_by_genre_and_exp_heatmap.png" alt="image-title-here" class="img-responsive" width="30%"></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><br> <!-- Add vertical space here --></p>
 
-<p><img src="../assets/img/analysis/step_density_of_improv_and_drum_patterns.png" alt="Alt text"></p>
-<figcaption>Onset density and metrical weight per step of drum patterns and improvisations.</figcaption>
+<p><strong><em>Number of total attempts by genre:</em></strong></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><img src="assets/img/analysis/attempts_by_genre_histogram.png" alt="image-title-here" class="img-responsive" width="30%"></p>
 
-<p><img src="../assets/img/analysis/unique_patterns_by_genre_and_exp_heatmap.png" alt="Alt text"></p>
-<figcaption>Number of unique patterns tested by genre and musical expertise.</figcaption>
+<p><br> <!-- Add vertical space here --></p>
 
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
+<p><strong><em>Onset density and metrical weight per step of drum patterns and improvisations:</em></strong></p>
+
+<p><img src="assets/img/analysis/step_density_of_improv_and_drum_patterns.png" alt="image-title-here" class="img-responsive" width="30%"></p>
+
+<p><br> <!-- Add vertical space here --></p>
+
+<p><strong><em>Number of unique patterns tested by genre and musical expertise:</em></strong></p>
+
+<p><img src="assets/img/analysis/unique_patterns_by_genre_and_exp_heatmap.png" alt="image-title-here" class="img-responsive" width="30%"></p>
+
+<p><br> <!-- Add vertical space here --></p>
 
 <hr>
-<h3 id="electronic-genre-analysis">Electronic Genre Analysis</h3>
-<p>The figures below show preliminary analysis of the improvisations performed alongside the 16 Electronic patterns.
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
 
-<p><img src="../assets/img/analysis/attempts_per_electronic_pattern_histogram.png" alt="Alt text"></p>
-<figcaption>Number of attempts per each Electronic pattern.</figcaption>
-
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
-
-<p><img src="../assets/img/analysis/jaccard_by_exp_and_pattern_heatmap.png" alt="Alt text"></p>
-<figcaption>Jaccard similarities by each Electronic pattern and level of musical expertise</figcaption>
-
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
-
-<p><img src="../assets/img/analysis/jaccard_dist_for_each_electronic_pattern.png" alt="Alt text"></p>
-<figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
-
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
-
-<p><img src="../assets/img/analysis/jaccard_drum_improv_distribution_for_all_electronic_patterns_histogram.png" alt="Alt text"></p>
-<figcaption>Distributions of Jaccard similarities for each Electronic pattern.</figcaption>
-
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
-
-<p><img src="../assets/img/analysis/electronic_jaccard_mean_std.png" alt="Alt text"></p>
-<figcaption>Jaccard similarity means and standard deviation for every pattern in the Electronic music genre.</figcaption>
-
-<p><br> <!-- Add vertical space here -->
-<br> <!-- Add vertical space here --></p>
 
           </article>
 
