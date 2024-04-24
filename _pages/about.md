@@ -10,6 +10,12 @@ This site is dedicated to the ANON Dataset, a crowd-sourced expressive symbolic 
 
 <br> <!-- Add vertical space here -->
 
+## **Dataset and API**
+
+The dataset and the API can be accessed through the following link:
+
+[**Download**](/assets/dataset_and_API.zip){: .btn}
+
 ## **Listen to the Collected Samples**
 
 ---
