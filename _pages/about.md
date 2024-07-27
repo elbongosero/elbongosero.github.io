@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About
-description1: "ANON Dataset"
+description1: "El Bongosero Dataset"
 description2: "A Crowd-Sourced Symbolic Dataset of Improvised Hand Percussion Rhythms Paired with Drum"
 permalink: /
 subtitle: 
