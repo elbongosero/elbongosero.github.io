@@ -18,6 +18,7 @@ the genre of the selected pattern, the chosen tempo, the total duration to compl
 [**Download Dataset & API**](/assets/dataset_and_API.zip){: .btn} [**Explore Dataset in Colab**](https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing){: .btn}
 
 
+
 <br> <!-- Add vertical space here -->
 
 [//]: # (include _layouts/midi_vis_quickaccess.html)
@@ -53,12 +54,14 @@ Also, the following pages allow you to listen to subsets of the data if you are 
 
 ## **Dataset Statistics**
 ---
+<br> 
+
+[**Analysis Guide in Colab**]([https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing](https://colab.research.google.com/github/elbongosero/elbongosero.github.io/blob/master/El_Bongosero_Analysis_and_API.ipynb)){: .btn}
+
 
 <br>
 
 Use the following notebook, to use and study the dataset
-
-<a target="_blank" href="https://colab.research.google.com/github/elbongosero/elbongosero.github.io/blob/master/El_Bongosero_Analysis_and_API.ipynb">
 
 
 <br> <!-- Add vertical space here -->
