@@ -54,6 +54,12 @@ Also, the following pages allow you to listen to subsets of the data if you are 
 ## **Dataset Statistics**
 ---
 
+<br>
+
+Use the following notebook, to use and study the dataset
+
+<a target="_blank" href="https://colab.research.google.com/github/elbongosero/elbongosero.github.io/blob/master/El_Bongosero_Analysis_and_API.ipynb">
+
 
 <br> <!-- Add vertical space here -->
 
