@@ -56,8 +56,9 @@ Also, the following pages allow you to listen to subsets of the data if you are 
 ---
 <br> 
 
-[**Analysis Guide in Colab**]([https://colab.research.google.com/drive/1wK1Cr1kqcVZf8Oa84rkDxjZdbFT4HI53?usp=sharing](https://colab.research.google.com/github/elbongosero/elbongosero.github.io/blob/master/El_Bongosero_Analysis_and_API.ipynb)){: .btn}
-
+[**Run Analysis in Colab**](https://drive.google.com/file/d/1v1dwqUENh_hiRN7xKGM6LksYlKGbymNC/view?usp=sharing){: .btn}
+<br>
+[**OR Download Notebook**](/assets/El_Bongosero_Analysis_final_B.ipynb){: .btn}
 
 <br>
 
@@ -102,10 +103,6 @@ _**Number of total attempts by level of expertise:**_
 
 
 <br> <!-- Add vertical space here -->
-
-**_Number of unique patterns tested by genre and musical expertise:_**
-
-![image-title-here](assets/img/analysis/unique_patterns_by_genre_and_exp_heatmap.png){:class="img-responsive"}{:width="30%"}
 
 
 <br> <!-- Add vertical space here -->
