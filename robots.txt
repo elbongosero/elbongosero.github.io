@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://anon-temporary-data.github.io/sitemap.xml
+Sitemap: https://elbongosero.github.io/sitemap.xml

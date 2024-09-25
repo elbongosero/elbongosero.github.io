@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<div class="midi-selector">
+  <h2>Select:</h2>
+  <hr>
+    <p>  ags</p>
+
+
+  <label for="styleSelect">Style:</label>
+  <select id="styleSelect" onchange="clearNotes(); updateSources(); updateExperiences(); updateAttempts(); ">
+    <option selected disabled>Choose Style</option>
+  </select>
+
+  <label for="sourceSelect">Source:</label>
+  <select id="sourceSelect" onchange="clearNotes(); updateExperiences(); updateAttempts(); ">
+    <option selected disabled>Choose Source</option>
+  </select>
+
+  <label for="experienceSelect">Experience:</label>
+  <select id="experienceSelect" onchange="clearNotes(); updateAttempts(); ">
+    <option selected disabled>Choose Experience</option>
+  </select>
+
+  <label for="attemptSelect">Attempt:</label>
+  <select id="attemptSelect" onchange="loadMIDIFile()">
+    <option selected disabled>Choose Attempt</option>
+  </select>
+
+  <br><br>
+
+  <div id="midiPlayerContainer">
+    <h2>Bongo and Drums</h2>
+    <hr>
+
+    <midi-player id="midiPlayerBongoAndDrum" sound-font visualizer="#midiPlayerVisBongoAndDrum"></midi-player>
+    <midi-visualizer type="piano-roll" id="midiPlayerVisBongoAndDrum"></midi-visualizer>
+
+    <br><br>
+
+    <h2>Bongo Only</h2>
+    <hr>
+
+    <midi-player id="midiPlayerBongo" sound-font visualizer="#midiPlayerVisBongo"></midi-player>
+    <midi-visualizer type="piano-roll" id="midiPlayerVisBongo"></midi-visualizer>
+
+
+  </div>
+</div>
+
+<!-- MIDI Player Integration -->
+<script src="https://cdn.jsdelivr.net/npm/tone@14.7.58"></script>
+<script src="https://cdn.jsdelivr.net/npm/@magenta/midi-player@1.5.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch('/assets/data/sources.json')
+    .then(response => response.json())
+    .then(data => {
+      var styleSelect = document.getElementById('styleSelect');
+      data.forEach(function(style) {
+        var option = document.createElement('option');
+        option.value = style.style;
+        option.textContent = style.style;
+        styleSelect.appendChild(option);
+      });
+    });
+
+  window.updateSources = function() {
+    var style = document.getElementById('styleSelect').value;
+    var sourceSelect = document.getElementById('sourceSelect');
+    sourceSelect.innerHTML = '<option selected disabled>Choose Source</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var sources = data.find(d => d.style === style).sources;
+        sources.forEach(function(source) {
+          var option = document.createElement('option');
+          option.value = source.name;
+          option.textContent = source.name;
+          sourceSelect.appendChild(option);
+        });
+      });
+  };
+
+  window.updateExperiences = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experienceSelect = document.getElementById('experienceSelect');
+    experienceSelect.innerHTML = '<option selected disabled>Choose Experience</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var experiences = data.find(d => d.style === style).sources.find(s => s.name === source).experiences;
+        experiences.forEach(function(exp) {
+          var option = document.createElement('option');
+          option.value = exp.experience;
+          option.textContent = "Level " + exp.experience_level;  // Simplified display format
+          experienceSelect.appendChild(option);
+        });
+      });
+  };
+
+  window.updateAttempts = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attemptSelect = document.getElementById('attemptSelect');
+    attemptSelect.innerHTML = '<option selected disabled>Choose Attempt</option>';
+    fetch('/assets/data/sources.json')
+      .then(response => response.json())
+      .then(data => {
+        var numFiles = data.find(d => d.style === style).sources.find(s => s.name === source).experiences.find(e => e.experience === experience).num_files;
+        for (let i = 1; i <= numFiles; i++) {
+          var option = document.createElement('option');
+          option.value = i;
+          option.textContent = "Attempt " + i;
+          attemptSelect.appendChild(option);
+        }
+      });
+  };
+
+  window.clearNotes = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attempt = document.getElementById('attemptSelect').value;
+
+    var playerBongo = document.getElementById('midiPlayerBongo');
+    playerBongo.src = '';
+
+    var playerBongoVisualizer = document.getElementById('midiPlayerVisBongo');
+    playerBongoVisualizer.src = '';
+
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = '';
+
+    var playerBongoVisualizerAndDrum = document.getElementById('midiPlayerVisBongoAndDrum');
+    playerBongoVisualizerAndDrum.src = '';
+  };
+  window.loadMIDIFile = function() {
+    var style = document.getElementById('styleSelect').value;
+    var source = document.getElementById('sourceSelect').value;
+    var experience = document.getElementById('experienceSelect').value;
+    var attempt = document.getElementById('attemptSelect').value;
+    var midiFileBongo = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_${attempt - 1}.mid`;
+    var playerBongo = document.getElementById('midiPlayerBongo');
+    playerBongo.src = midiFileBongo;
+
+    var playerBongoVisualizer = document.getElementById('midiPlayerVisBongo');
+    playerBongoVisualizer.setAttribute('src', playerBongo.src);
+
+    var midiFileBongoAndDrum = `/assets/midi_organized_by_source_drums/${style}/${source}/${experience}/bongo_and_drum_${attempt - 1}.mid`;
+    var playerBongoAndDrum = document.getElementById('midiPlayerBongoAndDrum');
+    playerBongoAndDrum.src = midiFileBongoAndDrum;
+
+    var playerBongoVisualizerAndDrum = document.getElementById('midiPlayerVisBongoAndDrum');
+    playerBongoVisualizerAndDrum.setAttribute('src', playerBongoAndDrum.src);
+  };
+});
+</script>
+</body></html>
